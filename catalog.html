@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>目录 · BF Labs Skills</title>
+  <link rel="stylesheet" href="assets/bflabs-ui/tokens.css" />
+  <link rel="stylesheet" href="assets/bflabs-ui/base.css" />
+  <link rel="stylesheet" href="assets/bflabs-ui/components.css" />
+  <link rel="stylesheet" href="assets/skills-kit.css" />
+  <link rel="stylesheet" href="assets/skills-site.css" />
+</head>
+<body class="bf-theme" data-tone="light">
+  <header class="sk-header" id="site-header"></header>
+  <main class="sk-page inner">
+    <h1 class="bf-section-heading__title" data-i18n="catalogTitle"></h1>
+    <div class="work-grid" id="work-grid"></div>
+  </main>
+  <footer class="sk-footer" id="site-footer"></footer>
+  <div class="panel" id="panel" data-open="false"></div>
+  <script src="assets/skills-kit.js"></script>
+  <script>
+    const { t, skillField, boot } = window.BFSkillsUI;
+    const panel = document.getElementById("panel");
+
+    function paintGrid() {
+      document.getElementById("work-grid").innerHTML = window.BFSkills.skills.map((item, index) => `
+        <button class="bf-card bf-card--interactive work" type="button" data-id="${item.id}">
+          <span class="bf-card__index">0${index + 1} / ${item.tier}</span>
+          <div>
+            <h2 class="bf-card__title">${skillField(item, "name")}</h2>
+            <p class="bf-card__body">${skillField(item, "blurb")}</p>
+          </div>
+          <span class="bf-status-tag ${item.tier === "Enterprise" ? "bf-status-tag--accent" : ""}"><span class="bf-status-tag__dot"></span>${item.hosts.join(" · ")}</span>
+        </button>`).join("");
+    }
+
+    function openSkill(id) {
+      const item = window.BFSkills.skills.find((s) => s.id === id);
+      if (!item) return;
+      panel.dataset.open = "true";
+      panel.innerHTML = `
+        <article class="bf-confirmation-card">
+          <span class="bf-confirmation-card__eyebrow">${item.id}</span>
+          <h2 class="bf-confirmation-card__title">${skillField(item, "name")}</h2>
+          <p class="bf-confirmation-card__description">${skillField(item, "blurb")}</p>
+          <dl class="bf-confirmation-card__details">
+            <div><dt>${t("tier")}</dt><dd>${item.tier}</dd></div>
+            <div><dt>${t("hosts")}</dt><dd>${item.hosts.join(" · ")}</dd></div>
+            <div><dt>${t("install")}</dt><dd>${skillField(item, "install")}</dd></div>
+          </dl>
+          <div class="bf-confirmation-card__actions">
+            ${item.tier === "Enterprise" ? `<a class="bf-button bf-button--primary" href="https://bflabs.cn"><span>${t("talk")}</span></a>` : ""}
+            <button class="bf-button bf-button--quiet" type="button" data-close>${t("close")}</button>
+          </div>
+        </article>`;
+    }
+
+    document.getElementById("work-grid").addEventListener("click", (event) => {
+      const button = event.target.closest("[data-id]");
+      if (button) openSkill(button.dataset.id);
+    });
+    panel.addEventListener("click", (event) => {
+      if (event.target === panel || event.target.closest("[data-close]")) {
+        panel.dataset.open = "false";
+        panel.innerHTML = "";
+      }
+    });
+    window.addEventListener("bf-lang", paintGrid);
+    boot({ page: "catalog", assetRoot: "assets" });
+    paintGrid();
+  </script>
+</body>
+</html>

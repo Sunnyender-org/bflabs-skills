@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BF Labs Skills</title>
+  <link rel="stylesheet" href="assets/bflabs-ui/tokens.css" />
+  <link rel="stylesheet" href="assets/bflabs-ui/base.css" />
+  <link rel="stylesheet" href="assets/bflabs-ui/components.css" />
+  <link rel="stylesheet" href="assets/skills-kit.css" />
+  <link rel="stylesheet" href="assets/skills-site.css" />
+</head>
+<body class="bf-theme" data-tone="light">
+  <div class="sk-orbit" aria-hidden="true">
+    <svg viewBox="0 0 1200 900">
+      <g class="sk-orbit__shell">
+        <ellipse class="sk-orbit__ring" cx="640" cy="420" rx="190" ry="84" style="--ring-duration:32s;--ring-opacity:.3" stroke-dasharray="16 14"/>
+        <ellipse class="sk-orbit__ring" cx="640" cy="420" rx="270" ry="118" style="--ring-duration:27s" stroke-dasharray="26 16"/>
+        <ellipse class="sk-orbit__ring is-accent" cx="640" cy="420" rx="350" ry="154" style="--ring-duration:23s" stroke-dasharray="5 17"/>
+        <ellipse class="sk-orbit__ring" cx="640" cy="420" rx="440" ry="194" style="--ring-duration:36s;--ring-opacity:.26" stroke-dasharray="38 20"/>
+        <ellipse class="sk-orbit__ring" cx="640" cy="420" rx="530" ry="236" style="--ring-duration:41s;--ring-opacity:.2" stroke-dasharray="12 18"/>
+        <ellipse class="sk-orbit__ring is-accent" cx="640" cy="420" rx="630" ry="280" style="--ring-duration:29s;--ring-delay:-6s" stroke-dasharray="4 20"/>
+      </g>
+    </svg>
+  </div>
+
+  <header class="sk-header" id="site-header"></header>
+
+  <main class="sk-page">
+    <section class="hero">
+      <div>
+        <span class="bf-section-heading__eyebrow" data-i18n="heroEyebrow"></span>
+        <h1 class="bf-kinetic-heading hero__title" data-kinetic id="hero-title"></h1>
+        <div class="hero__actions">
+          <a class="bf-button bf-button--primary" href="catalog.html">
+            <span data-i18n="ctaPrism"></span>
+            <svg class="bf-button__icon bf-button__icon--end" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <img class="hero-mark-echo hero-mark-echo--far" src="assets/bflabs-ui/bf-mark.svg" alt="" />
+        <img class="hero-mark-echo hero-mark-echo--near" src="assets/bflabs-ui/bf-mark.svg" alt="" />
+        <img class="bf-brand-mark" src="assets/bflabs-ui/bf-mark.svg" alt="" style="width:min(100%,34rem)" />
+        <span class="hero__version">skills.bflabs.cn</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/skills-kit.js"></script>
+  <script>
+    const { t, kineticLines, boot } = window.BFSkillsUI;
+    function paint() {
+      const muted = window.BFSkills.lang === "zh"
+        ? [{ text: "给真正干活的", tone: "muted" }, { text: "智能体。", tone: "muted" }]
+        : [{ text: t("heroLine2"), tone: "muted" }];
+      document.getElementById("hero-title").innerHTML = kineticLines([
+        { text: t("heroLine1") },
+        ...muted,
+      ]);
+    }
+    window.addEventListener("bf-lang", paint);
+    boot({ page: "home", assetRoot: "assets" });
+    paint();
+  </script>
+</body>
+</html>
