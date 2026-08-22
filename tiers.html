@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>层级 · BF Labs Skills</title>
+  <link rel="stylesheet" href="assets/bflabs-ui/tokens.css" />
+  <link rel="stylesheet" href="assets/bflabs-ui/base.css" />
+  <link rel="stylesheet" href="assets/bflabs-ui/components.css" />
+  <link rel="stylesheet" href="assets/skills-kit.css" />
+  <link rel="stylesheet" href="assets/skills-site.css" />
+</head>
+<body class="bf-theme" data-tone="light">
+  <header class="sk-header" id="site-header"></header>
+  <main>
+    <section class="dark">
+      <div class="inner">
+        <span class="bf-section-heading__eyebrow"><span data-i18n="compareTitle"></span> · <span data-i18n="compareFreeTitle"></span></span>
+        <h1 class="bf-section-heading__title" data-i18n="compareFree"></h1>
+        <ul class="tier-list" id="free-list"></ul>
+        <p class="hero__actions">
+          <a class="bf-button bf-button--primary" href="install.html">
+            <span data-i18n="navInstall"></span>
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+  <footer class="sk-footer" id="site-footer"></footer>
+  <script src="assets/skills-kit.js"></script>
+  <script>
+    const { skillField, escapeHtml, skillsFor, boot } = window.BFSkillsUI;
+
+    function paint() {
+      document.getElementById("free-list").innerHTML = skillsFor("Free").map((item) => `
+        <li>
+          <a href="catalog.html#${escapeHtml(item.id)}">${escapeHtml(skillField(item, "name"))}</a>
+          <span>${escapeHtml(skillField(item, "blurb"))}</span>
+        </li>`).join("");
+    }
+
+    window.addEventListener("bf-lang", paint);
+    boot({ page: "tiers", assetRoot: "assets" });
+    paint();
+  </script>
+</body>
+</html>

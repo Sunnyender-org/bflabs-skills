@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>安装 · BF Labs Skills</title>
+  <link rel="stylesheet" href="assets/bflabs-ui/tokens.css" />
+  <link rel="stylesheet" href="assets/bflabs-ui/base.css" />
+  <link rel="stylesheet" href="assets/bflabs-ui/components.css" />
+  <link rel="stylesheet" href="assets/skills-kit.css" />
+  <link rel="stylesheet" href="assets/skills-site.css" />
+</head>
+<body class="bf-theme" data-tone="light">
+  <header class="sk-header" id="site-header"></header>
+  <main class="orange">
+    <div class="sk-page inner">
+      <h1 class="bf-section-heading__title" data-i18n="installTitle"></h1>
+      <div class="install-steps" id="install-steps"></div>
+    </div>
+  </main>
+  <footer class="sk-footer" id="site-footer"></footer>
+  <script src="assets/skills-kit.js"></script>
+  <script>
+    const { t, escapeHtml, boot } = window.BFSkillsUI;
+
+    function paintSteps() {
+      document.getElementById("install-steps").innerHTML = window.BFSkills.installs.map((step, index) => `
+        <article class="bf-card">
+          <span class="bf-card__index">${String(index + 1).padStart(2, "0")}</span>
+          <h2 class="bf-card__title">${escapeHtml(t(step.titleKey))}</h2>
+          <p class="bf-card__body">${escapeHtml(t(step.bodyKey))}</p>
+          ${step.href ? `<a class="bf-button bf-button--quiet" href="${escapeHtml(step.href)}"><span>${escapeHtml(t(step.ctaKey))}</span></a>` : `<span class="bf-status-tag"><span class="bf-status-tag__dot"></span>${escapeHtml(t("prepared"))}</span>`}
+        </article>`).join("");
+    }
+
+    window.addEventListener("bf-lang", paintSteps);
+    boot({ page: "install", assetRoot: "assets" });
+    paintSteps();
+  </script>
+</body>
+</html>
