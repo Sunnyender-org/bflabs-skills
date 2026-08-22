@@ -7,7 +7,7 @@ PUBLISH="$ROOT/.publish"
 
 rm -rf "$PUBLISH"
 mkdir -p "$PUBLISH"
-cp "$ROOT/index.html" "$ROOT/catalog.html" "$ROOT/404.html" "$ROOT/_headers" "$ROOT/robots.txt" "$ROOT/sitemap.xml" "$PUBLISH/"
+cp "$ROOT/index.html" "$ROOT/catalog.html" "$ROOT/hosts.html" "$ROOT/tiers.html" "$ROOT/install.html" "$ROOT/404.html" "$ROOT/_headers" "$ROOT/robots.txt" "$ROOT/sitemap.xml" "$PUBLISH/"
 cp -R "$ROOT/assets" "$PUBLISH/assets"
 
 CLOUDFLARE_ACCOUNT_ID="$ACCOUNT_ID" npx wrangler deploy --config "$ROOT/wrangler.jsonc"

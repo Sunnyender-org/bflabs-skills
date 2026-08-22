@@ -1,5 +1,4 @@
-/* Shared content + motion for the three Skills direction drafts.
-   Copy is identical across versions. Layout is not. */
+/* Shared content and chrome for skills.bflabs.cn. */
 
 window.BFSkills = {
   lang: "zh",
@@ -15,53 +14,28 @@ window.BFSkills = {
       heroEyebrow: "skills.bflabs.cn",
       heroLine1: "技能与插件",
       heroLine2: "给真正干活的智能体。",
-      heroSub: "",
       ctaPrism: "看看有什么 skills",
-      ctaSite: "官网",
-      catalogIndex: "01",
-      catalogLabel: "目录",
       catalogTitle: "目录",
-      catalogSummary: "",
-      hostsIndex: "02",
-      hostsLabel: "宿主",
       hostsTitle: "宿主",
-      hostsSummary: "",
-      compareIndex: "03",
-      compareLabel: "层级",
       compareTitle: "层级",
-      compareSummary: "",
-      filterAll: "全部",
-      filterFree: "Free",
-      filterEnt: "Enterprise",
-      searchPh: "按名字或宿主找 skill",
+      installTitle: "安装",
       tier: "层级",
       hosts: "宿主",
       install: "安装",
-      bound: "边界",
       prepared: "准备上架",
-      talk: "官网",
-      mailLabel: "联系",
-      footerTitle: "联系",
-      legalLeft: "skills.bflabs.cn",
-      legalMid: "",
-      legalRight: "hello@bflabs.cn",
-      indexNote: "",
-      compareFree: "Prism",
-      compareEnt: "共享库 · 品牌锁 · MCP · 审计",
+      diagnose: "去检查",
+      rootSkill: "总 skill",
+      childSkills: "子 skill",
       close: "关闭",
-      installTitle: "安装",
-      installSummary: "",
+      mailLabel: "联系",
+      legalLeft: "skills.bflabs.cn",
+      legalRight: "hello@bflabs.cn",
+      compareFreeTitle: "Free",
+      compareFree: "自己装，自己跑。网站先检查，图再拆成提示词。",
       installLocal: "本地",
       installHub: "SkillHub",
-      installEnt: "企业",
-      installLocalBody: "python3 scripts/prism.py check",
-      installHubBody: "准备上架",
-      installEntBody: "WorkBuddy 企业席位",
-      hostCodex: "本地",
-      hostGrok: "本地",
-      hostWb: "个人版 · 企业席位",
-      hostHub: "准备上架",
-      hostGit: "源码镜像",
+      installLocalBody: "Prism 放到 Codex 或 Grok 的 skills 目录，再运行仓库里的检查。GEO 先打开诊断站；要装到本地时，放到 Codex 或 Claude 的 skills 目录。",
+      installHubBody: "GEO 上架包已准备，可先从诊断站或 Skill 索引直接读取。平台提交后以上架回执为准。",
     },
     en: {
       navCatalog: "Catalog",
@@ -74,139 +48,183 @@ window.BFSkills = {
       heroEyebrow: "skills.bflabs.cn",
       heroLine1: "Skills and plugins",
       heroLine2: "for agents that do real work.",
-      heroSub: "",
       ctaPrism: "See the skills",
-      ctaSite: "Site",
-      catalogIndex: "01",
-      catalogLabel: "Catalog",
       catalogTitle: "Catalog",
-      catalogSummary: "",
-      hostsIndex: "02",
-      hostsLabel: "Hosts",
       hostsTitle: "Hosts",
-      hostsSummary: "",
-      compareIndex: "03",
-      compareLabel: "Tiers",
       compareTitle: "Tiers",
-      compareSummary: "",
-      filterAll: "All",
-      filterFree: "Free",
-      filterEnt: "Enterprise",
-      searchPh: "Find a skill by name or host",
+      installTitle: "Install",
       tier: "Tier",
       hosts: "Hosts",
       install: "Install",
-      bound: "Boundary",
       prepared: "Ready to list",
-      talk: "Site",
-      mailLabel: "Contact",
-      footerTitle: "Contact",
-      legalLeft: "skills.bflabs.cn",
-      legalMid: "",
-      legalRight: "hello@bflabs.cn",
-      indexNote: "",
-      compareFree: "Prism",
-      compareEnt: "Shared vault · Brand lock · MCP · Audit",
+      diagnose: "Check a site",
+      rootSkill: "Root skill",
+      childSkills: "Child skills",
       close: "Close",
-      installTitle: "Install",
-      installSummary: "",
+      mailLabel: "Contact",
+      legalLeft: "skills.bflabs.cn",
+      legalRight: "hello@bflabs.cn",
+      compareFreeTitle: "Free",
+      compareFree: "Install and run it yourself. Check the site first, then turn pictures into prompts.",
       installLocal: "Local",
       installHub: "SkillHub",
-      installEnt: "Enterprise",
-      installLocalBody: "python3 scripts/prism.py check",
-      installHubBody: "Ready to list",
-      installEntBody: "WorkBuddy enterprise seat",
-      hostCodex: "Local",
-      hostGrok: "Local",
-      hostWb: "Personal · Enterprise",
-      hostHub: "Ready to list",
-      hostGit: "Source mirror",
+      installLocalBody: "Put Prism in the Codex or Grok skills folder, then run the repo check. For GEO, start at the diagnosis site. To install locally, put it in the Codex or Claude skills folder.",
+      installHubBody: "The GEO listing package is ready. Use the diagnostic site or Skill index until the platform listing receipt is complete.",
     },
   },
   skills: [
     {
+      id: "geo",
+      tier: "Free",
+      hosts: ["Codex", "Claude", "SkillHub"],
+      href: "https://readiness.bflabs.cn/skills/bflabs-agent-readiness",
+      diagnose: "https://readiness.bflabs.cn",
+      name: { zh: "GEO", en: "GEO" },
+      blurb: {
+        zh: "免费检查公开网站：找得到、看得懂、用得起来。不承诺排名。",
+        en: "Free check of a public site: can it be found, understood, and used. No ranking promise.",
+      },
+      install: {
+        zh: "打开 readiness.bflabs.cn，或让 Agent 读取站点的 Agent Skills 索引。",
+        en: "Open readiness.bflabs.cn, or let the agent read the site's Agent Skills index.",
+      },
+      children: [
+        {
+          id: "geo-discover",
+          href: "https://readiness.bflabs.cn/skills/geo-discover",
+          name: { zh: "问题发现", en: "Discover questions" },
+          blurb: {
+            zh: "整理买家会拿去问 AI 的问题，标出还缺证据的地方。",
+            en: "Map questions buyers would ask AI, and mark where evidence is still missing.",
+          },
+        },
+        {
+          id: "geo-content",
+          href: "https://readiness.bflabs.cn/skills/geo-content",
+          name: { zh: "证据内容", en: "Evidence content" },
+          blurb: {
+            zh: "按已有证据写标题、解释、对比和页面结构，不编事实。",
+            en: "Write titles, explainers, comparisons, and page structure from evidence. No invented facts.",
+          },
+        },
+        {
+          id: "geo-measure",
+          href: "https://readiness.bflabs.cn/skills/geo-measure",
+          name: { zh: "回答汇总", en: "Answer tally" },
+          blurb: {
+            zh: "把你提供的 AI 回答汇总成可见度。缺数据就标缺，不编百分比。",
+            en: "Tally the AI answers you supply. Missing data stays missing. No invented percentages.",
+          },
+        },
+        {
+          id: "seo-plan",
+          href: "https://readiness.bflabs.cn/skills/seo-plan",
+          name: { zh: "技术 SEO 计划", en: "SEO plan" },
+          blurb: {
+            zh: "按现有证据列出技术检查。不改网站，也不查排名。",
+            en: "List technical checks from the evidence you have. It does not change the site or look up rankings.",
+          },
+        },
+        {
+          id: "geo-optimize",
+          href: "https://readiness.bflabs.cn/skills/geo-optimize",
+          name: { zh: "站点优化", en: "Site optimize" },
+          blurb: {
+            zh: "在你自己的网站仓库里改公开事实，改完能核对。",
+            en: "Change public facts in your own site repo, then verify the change.",
+          },
+        },
+        {
+          id: "webmcp-enable",
+          href: "https://readiness.bflabs.cn/skills/webmcp-enable",
+          name: { zh: "WebMCP", en: "WebMCP" },
+          blurb: {
+            zh: "让浏览器智能体能在网站上完成你允许的操作。",
+            en: "Let a browser agent complete the actions you allow on the site.",
+          },
+        },
+      ],
+    },
+    {
       id: "prism",
-      letter: "P",
       tier: "Free",
       hosts: ["Codex", "Grok", "WorkBuddy", "SkillHub"],
-      name: { zh: "Prism / 棱镜", en: "Prism" },
+      name: { zh: "Prism", en: "Prism" },
       blurb: {
-        zh: "把参考图拆成类型化视觉合同，再编译成 GPT Image 用的自然语言，并沉淀词卡。免费。",
-        en: "Turn a reference image into a typed visual contract, compile it into GPT Image prose, and keep keyword cards. Free.",
+        zh: "把参考图拆成类型化视觉合同，再写成生图用的句子，并留下词卡。免费。",
+        en: "Turn a reference image into a typed visual contract, write image-model prose, and keep keyword cards. Free.",
       },
       install: {
         zh: "python3 scripts/prism.py check",
         en: "python3 scripts/prism.py check",
       },
-      extra: {
-        zh: "",
-        en: "",
-      },
-    },
-    {
-      id: "shared-vault",
-      letter: "S",
-      tier: "Enterprise",
-      hosts: ["WorkBuddy"],
-      name: { zh: "Shared Vault", en: "Shared Vault" },
-      blurb: {
-        zh: "公司级词卡、色卡与提示词库。部门共用，权限与审计一起交付。",
-        en: "Company keyword, palette, and prompt vault. Shared by department, shipped with permission and audit.",
-      },
-      install: {
-        zh: "需 BF Labs 定制的 WorkBuddy 企业席位。",
-        en: "Requires a BF Labs custom WorkBuddy enterprise seat.",
-      },
-      extra: {
-        zh: "",
-        en: "",
-      },
-    },
-    {
-      id: "brand-lock",
-      letter: "B",
-      tier: "Enterprise",
-      hosts: ["WorkBuddy"],
-      name: { zh: "Brand Lock", en: "Brand Lock" },
-      blurb: {
-        zh: "官方色、禁用词、已批准版式。员工只能用通过的视觉合同。",
-        en: "Official colors, banned words, approved layouts. Staff can only use cleared visual contracts.",
-      },
-      install: {
-        zh: "随企业实施包开启。",
-        en: "Enabled with the enterprise implementation pack.",
-      },
-      extra: {
-        zh: "对接客户自己的素材规范。",
-        en: "Maps onto the customer's own brand rules.",
-      },
-    },
-    {
-      id: "ops-mcp",
-      letter: "O",
-      tier: "Enterprise",
-      hosts: ["WorkBuddy"],
-      name: { zh: "Ops MCP", en: "Ops MCP" },
-      blurb: {
-        zh: "接到飞书知识库、素材盘或业务系统。拆图结果写回企业流程。",
-        en: "Connect Feishu knowledge, asset disks, or business systems. Write deconstruction results back into the workflow.",
-      },
-      install: {
-        zh: "实施时按客户系统接线。",
-        en: "Wired during implementation against the customer system.",
-      },
-      extra: {
-        zh: "禁止连接未授权的生产写接口。",
-        en: "Do not connect unauthorized production write interfaces.",
-      },
     },
   ],
   hosts: [
-    { id: "codex", name: "Codex", number: "01", key: "hostCodex", state: "ready" },
-    { id: "grok", name: "Grok", number: "02", key: "hostGrok", state: "ready" },
-    { id: "workbuddy", name: "WorkBuddy", number: "03", key: "hostWb", state: "ready" },
-    { id: "skillhub", name: "SkillHub", number: "04", key: "hostHub", state: "prepared" },
-    { id: "gongfeng", name: "Gongfeng", number: "05", key: "hostGit", state: "mirror" },
+    {
+      id: "codex",
+      name: "Codex",
+      number: "01",
+      state: "ready",
+      body: {
+        zh: "本地装。GEO 和 Prism 都可以放进来。",
+        en: "Install locally. GEO and Prism both run here.",
+      },
+    },
+    {
+      id: "claude",
+      name: "Claude",
+      number: "02",
+      state: "ready",
+      body: {
+        zh: "本地装。GEO 放进 skills 目录即可。",
+        en: "Install locally. Put GEO in the skills folder.",
+      },
+    },
+    {
+      id: "grok",
+      name: "Grok",
+      number: "03",
+      state: "ready",
+      body: {
+        zh: "本地装。Prism 在这里跑。",
+        en: "Install locally. Prism runs here.",
+      },
+    },
+    {
+      id: "workbuddy",
+      name: "WorkBuddy",
+      number: "04",
+      state: "ready",
+      body: {
+        zh: "个人版和企业席位。Prism 可以放进来。",
+        en: "Personal and enterprise seats. Prism can run here.",
+      },
+    },
+    {
+      id: "skillhub",
+      name: "SkillHub",
+      number: "05",
+      state: "prepared",
+      body: {
+        zh: "GEO 上架包已准备，真实平台提交与回执仍待完成。",
+        en: "The GEO listing package is ready. Platform submission and receipt are still pending.",
+      },
+    },
+    {
+      id: "gongfeng",
+      name: "Gongfeng",
+      number: "06",
+      state: "mirror",
+      body: {
+        zh: "源码镜像，方便国内取代码。",
+        en: "Source mirror, for fetching the code in China.",
+      },
+    },
+  ],
+  installs: [
+    { id: "local", titleKey: "installLocal", bodyKey: "installLocalBody", href: "catalog.html", ctaKey: "navCatalog" },
+    { id: "hub", titleKey: "installHub", bodyKey: "installHubBody" },
   ],
 };
 
@@ -222,6 +240,34 @@ function skillField(skill, key) {
     return value[window.BFSkills.lang];
   }
   return value;
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function padIndex(index) {
+  return String(index + 1).padStart(2, "0");
+}
+
+function findSkill(id) {
+  const top = window.BFSkills.skills.find((skill) => skill.id === id);
+  if (top) return top;
+  return window.BFSkills.skills.find((skill) => (skill.children || []).some((child) => child.id === id)) || null;
+}
+
+function skillsFor(tier) {
+  return window.BFSkills.skills.filter((skill) => !tier || skill.tier === tier);
+}
+
+function hostStateLabel(state) {
+  if (state === "prepared") return i18n("prepared");
+  if (state === "mirror") return window.BFSkills.lang === "zh" ? "源码镜像" : "Source mirror";
+  return window.BFSkills.lang === "zh" ? "可用" : "Ready";
 }
 
 function applyI18n() {
@@ -318,14 +364,10 @@ function bindReveal() {
 function kineticLines(lines) {
   return lines
     .map((line) => {
-      const words = line.text.split(/\s+/).map((word) => `<span class="bf-kinetic-heading__word" data-bf-kinetic-word data-active="false">${word}</span>`).join(" ");
+      const words = line.text.split(/\s+/).map((word) => `<span class="bf-kinetic-heading__word" data-bf-kinetic-word data-active="false">${escapeHtml(word)}</span>`).join(" ");
       return `<span class="bf-kinetic-heading__line${line.tone ? ` bf-kinetic-heading__line--${line.tone}` : ""}">${words}</span>`;
     })
     .join("");
-}
-
-function arrowSvg(className) {
-  return `<svg class="${className || "sk-arrow"}" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5"/></svg>`;
 }
 
 function currentAttr(page, name) {
@@ -347,14 +389,17 @@ function renderChrome({ page, assetRoot = "assets" } = {}) {
         <img class="bf-brand-mark" src="${mark}" alt="" />
         <span class="bf-brand-lockup__copy">
           <span class="bf-brand-lockup__name">BF LABS</span>
-          <span class="bf-brand-lockup__tagline">${i18n("siteName")}</span>
+          <span class="bf-brand-lockup__tagline">${escapeHtml(i18n("siteName"))}</span>
         </span>
       </a>
       <nav class="sk-nav" aria-label="Skills site">
-        <a href="catalog.html"${currentAttr(page, "catalog")}>${i18n("navCatalog")}</a>
+        <a href="catalog.html"${currentAttr(page, "catalog")}>${escapeHtml(i18n("navCatalog"))}</a>
+        <a href="hosts.html"${currentAttr(page, "hosts")}>${escapeHtml(i18n("navHosts"))}</a>
+        <a href="tiers.html"${currentAttr(page, "tiers")}>${escapeHtml(i18n("navTiers"))}</a>
+        <a href="install.html"${currentAttr(page, "install")}>${escapeHtml(i18n("navInstall"))}</a>
       </nav>
       <div class="sk-tools">
-        <a class="sk-exit" href="https://bflabs.cn">${i18n("navSite")}</a>
+        <a class="sk-exit" href="https://bflabs.cn">${escapeHtml(i18n("navSite"))}</a>
         <div class="sk-lang" aria-label="Language">
           <button type="button" data-lang="en"${window.BFSkills.lang === "en" ? ' aria-pressed="true"' : ""}>EN</button>
           <span>/</span>
@@ -366,7 +411,7 @@ function renderChrome({ page, assetRoot = "assets" } = {}) {
     footer.innerHTML = `
       <div class="sk-footer__contact">
         <a class="sk-footer__mail" href="mailto:hello@bflabs.cn">
-          <span>${i18n("mailLabel")}</span>
+          <span>${escapeHtml(i18n("mailLabel"))}</span>
           <strong>hello@bflabs.cn</strong>
           <svg viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"/></svg>
         </a>
@@ -381,13 +426,16 @@ function renderChrome({ page, assetRoot = "assets" } = {}) {
         </a>
         <nav class="sk-footer__meta">
           <a href="index.html">Home</a>
-          <a href="catalog.html">${i18n("navCatalog")}</a>
+          <a href="catalog.html">${escapeHtml(i18n("navCatalog"))}</a>
+          <a href="hosts.html">${escapeHtml(i18n("navHosts"))}</a>
+          <a href="tiers.html">${escapeHtml(i18n("navTiers"))}</a>
+          <a href="install.html">${escapeHtml(i18n("navInstall"))}</a>
           <a href="https://bflabs.cn">bflabs.cn</a>
         </nav>
       </div>
       <div class="sk-footer__legal">
-        <span>${i18n("legalLeft")}</span>
-        <span>${i18n("legalRight")}</span>
+        <span>${escapeHtml(i18n("legalLeft"))}</span>
+        <span>${escapeHtml(i18n("legalRight"))}</span>
       </div>`;
   }
 }
@@ -395,13 +443,17 @@ function renderChrome({ page, assetRoot = "assets" } = {}) {
 window.BFSkillsUI = {
   t: i18n,
   skillField,
+  escapeHtml,
+  padIndex,
+  findSkill,
+  skillsFor,
+  hostStateLabel,
   applyI18n,
   setLang,
   bindLang,
   bindKinetic,
   bindReveal,
   kineticLines,
-  arrowSvg,
   renderChrome,
   paintChrome,
   boot(options = {}) {

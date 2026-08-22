@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>宿主 · BF Labs Skills</title>
+  <link rel="stylesheet" href="assets/bflabs-ui/tokens.css" />
+  <link rel="stylesheet" href="assets/bflabs-ui/base.css" />
+  <link rel="stylesheet" href="assets/bflabs-ui/components.css" />
+  <link rel="stylesheet" href="assets/skills-kit.css" />
+  <link rel="stylesheet" href="assets/skills-site.css" />
+</head>
+<body class="bf-theme" data-tone="light">
+  <header class="sk-header" id="site-header"></header>
+  <main class="sk-page inner">
+    <h1 class="bf-section-heading__title" data-i18n="hostsTitle"></h1>
+    <div class="host-list" id="host-list"></div>
+  </main>
+  <footer class="sk-footer" id="site-footer"></footer>
+  <script src="assets/skills-kit.js"></script>
+  <script>
+    const { skillField, escapeHtml, hostStateLabel, boot } = window.BFSkillsUI;
+
+    function paintHosts() {
+      document.getElementById("host-list").innerHTML = window.BFSkills.hosts.map((host) => `
+        <article class="host-row">
+          <span>${escapeHtml(host.number)}</span>
+          <strong>${escapeHtml(host.name)}</strong>
+          <div class="host-row__copy">
+            <p>${escapeHtml(skillField(host, "body"))}</p>
+            <span class="bf-status-tag ${host.state === "prepared" ? "bf-status-tag--accent" : ""}"><span class="bf-status-tag__dot"></span>${escapeHtml(hostStateLabel(host.state))}</span>
+          </div>
+        </article>`).join("");
+    }
+
+    window.addEventListener("bf-lang", paintHosts);
+    boot({ page: "hosts", assetRoot: "assets" });
+    paintHosts();
+  </script>
+</body>
+</html>

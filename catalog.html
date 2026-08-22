@@ -20,43 +20,58 @@
   <div class="panel" id="panel" data-open="false"></div>
   <script src="assets/skills-kit.js"></script>
   <script>
-    const { t, skillField, boot } = window.BFSkillsUI;
+    const { t, skillField, escapeHtml, padIndex, findSkill, boot } = window.BFSkillsUI;
     const panel = document.getElementById("panel");
 
     function paintGrid() {
       document.getElementById("work-grid").innerHTML = window.BFSkills.skills.map((item, index) => `
-        <button class="bf-card bf-card--interactive work" type="button" data-id="${item.id}">
-          <span class="bf-card__index">0${index + 1} / ${item.tier}</span>
+        <button class="bf-card bf-card--interactive work" type="button" data-id="${escapeHtml(item.id)}">
+          <span class="bf-card__index">${padIndex(index)} / ${escapeHtml(item.tier)}</span>
           <div>
-            <h2 class="bf-card__title">${skillField(item, "name")}</h2>
-            <p class="bf-card__body">${skillField(item, "blurb")}</p>
+            <h2 class="bf-card__title">${escapeHtml(skillField(item, "name"))}</h2>
+            <p class="bf-card__body">${escapeHtml(skillField(item, "blurb"))}</p>
           </div>
-          <span class="bf-status-tag ${item.tier === "Enterprise" ? "bf-status-tag--accent" : ""}"><span class="bf-status-tag__dot"></span>${item.hosts.join(" · ")}</span>
+          <span class="bf-status-tag"><span class="bf-status-tag__dot"></span>${escapeHtml(item.hosts.join(" · "))}</span>
         </button>`).join("");
     }
 
+    function childLinks(item) {
+      if (!item.children || !item.children.length) return "";
+      return `
+        <div class="skill-links">
+          <span class="skill-links__label">${escapeHtml(t("childSkills"))}</span>
+          ${item.children.map((child) => `
+            <a class="skill-links__item" href="${escapeHtml(child.href)}">
+              <strong>${escapeHtml(skillField(child, "name"))}</strong>
+              <span>${escapeHtml(skillField(child, "blurb"))}</span>
+            </a>`).join("")}
+        </div>`;
+    }
+
     function openSkill(id) {
-      const item = window.BFSkills.skills.find((s) => s.id === id);
+      const item = findSkill(id);
       if (!item) return;
       panel.dataset.open = "true";
       panel.innerHTML = `
         <article class="bf-confirmation-card">
-          <span class="bf-confirmation-card__eyebrow">${item.id}</span>
-          <h2 class="bf-confirmation-card__title">${skillField(item, "name")}</h2>
-          <p class="bf-confirmation-card__description">${skillField(item, "blurb")}</p>
+          <span class="bf-confirmation-card__eyebrow">${escapeHtml(item.id)}</span>
+          <h2 class="bf-confirmation-card__title">${escapeHtml(skillField(item, "name"))}</h2>
+          <p class="bf-confirmation-card__description">${escapeHtml(skillField(item, "blurb"))}</p>
           <dl class="bf-confirmation-card__details">
-            <div><dt>${t("tier")}</dt><dd>${item.tier}</dd></div>
-            <div><dt>${t("hosts")}</dt><dd>${item.hosts.join(" · ")}</dd></div>
-            <div><dt>${t("install")}</dt><dd>${skillField(item, "install")}</dd></div>
+            <div><dt>${escapeHtml(t("tier"))}</dt><dd>${escapeHtml(item.tier)}</dd></div>
+            <div><dt>${escapeHtml(t("hosts"))}</dt><dd>${escapeHtml(item.hosts.join(" · "))}</dd></div>
+            <div><dt>${escapeHtml(t("install"))}</dt><dd>${escapeHtml(skillField(item, "install"))}</dd></div>
           </dl>
+          ${childLinks(item)}
           <div class="bf-confirmation-card__actions">
-            ${item.tier === "Enterprise" ? `<a class="bf-button bf-button--primary" href="https://bflabs.cn"><span>${t("talk")}</span></a>` : ""}
-            <button class="bf-button bf-button--quiet" type="button" data-close>${t("close")}</button>
+            ${item.href ? `<a class="bf-button bf-button--primary" href="${escapeHtml(item.href)}"><span>${escapeHtml(t("rootSkill"))}</span></a>` : ""}
+            ${item.diagnose ? `<a class="bf-button bf-button--quiet" href="${escapeHtml(item.diagnose)}"><span>${escapeHtml(t("diagnose"))}</span></a>` : ""}
+            <button class="bf-button bf-button--quiet" type="button" data-close>${escapeHtml(t("close"))}</button>
           </div>
         </article>`;
     }
 
-    document.getElementById("work-grid").addEventListener("click", (event) => {
+    document.querySelector("main").addEventListener("click", (event) => {
       const button = event.target.closest("[data-id]");
       if (button) openSkill(button.dataset.id);
     });
@@ -66,9 +81,20 @@
         panel.innerHTML = "";
       }
     });
-    window.addEventListener("bf-lang", paintGrid);
+    function openFromHash() {
+      const id = location.hash.replace(/^#/, "");
+      if (id) openSkill(id);
+    }
+
+    window.addEventListener("bf-lang", () => {
+      paintGrid();
+      panel.dataset.open = "false";
+      panel.innerHTML = "";
+    });
+    window.addEventListener("hashchange", openFromHash);
     boot({ page: "catalog", assetRoot: "assets" });
     paintGrid();
+    openFromHash();
   </script>
 </body>
 </html>

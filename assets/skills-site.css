@@ -91,17 +91,56 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.75rem;
-  margin-top: clamp(3rem, 5vw, 5rem);
+  margin-top: clamp(2rem, 4vw, 3.25rem);
 }
 
 .work {
-  min-height: clamp(20rem, 30vw, 30rem);
+  min-height: clamp(22rem, 32vw, 30rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
   border: 0;
   cursor: pointer;
+}
+
+.skill-links {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.skill-links__label {
+  color: var(--bf-foreground-subtle);
+  font-family: var(--bf-font-display);
+  font-size: var(--bf-text-2xs);
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.skill-links__item {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--bf-foreground) 10%, transparent);
+}
+
+.skill-links__item strong {
+  font-family: var(--bf-font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.skill-links__item span {
+  color: var(--bf-foreground-muted);
+  font-size: var(--bf-text-sm);
+  line-height: 1.55;
+}
+
+.skill-links__item:hover strong {
+  color: var(--bf-color-orange);
 }
 
 .work .bf-card__title { font-size: clamp(2rem, 3.2vw, 3.4rem); }
@@ -144,6 +183,45 @@
   line-height: 1.65;
 }
 
+.host-row__copy {
+  display: grid;
+  gap: 0.85rem;
+  justify-items: start;
+}
+
+.tier-list {
+  display: grid;
+  gap: 0.85rem;
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tier-list li {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid color-mix(in srgb, currentColor 16%, transparent);
+}
+
+.tier-list a {
+  font-family: var(--bf-font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.tier-list span {
+  color: color-mix(in srgb, currentColor 72%, transparent);
+  font-size: var(--bf-text-sm);
+  line-height: 1.6;
+}
+
+.install-steps .bf-button,
+.install-steps .bf-status-tag {
+  margin-top: 1.5rem;
+}
+
 .dark {
   min-height: calc(100svh - 5.5rem);
   background: var(--bf-color-charcoal);
@@ -151,18 +229,15 @@
 }
 
 .dark .bf-section-heading__summary,
-.dark .bf-section-heading__meta { color: var(--bf-color-silver); }
+.dark .bf-section-heading__meta,
+.dark .tier-list span { color: var(--bf-color-silver); }
 
-.compare {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  margin-top: clamp(3rem, 5vw, 5rem);
-}
+.dark .tier-list a:hover,
+.dark .tier-list a:focus-visible { color: var(--bf-color-orange); }
 
 .install-steps {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
   margin-top: clamp(3rem, 5vw, 5rem);
 }
@@ -194,11 +269,13 @@
 .panel[data-open="true"] { display: grid; }
 
 .panel .bf-confirmation-card {
-  width: min(100%, 44rem);
+  width: min(100%, 48rem);
+  max-height: calc(100svh - 4rem);
+  overflow: auto;
   background: var(--bf-color-warm-white);
 }
 
 @media (max-width: 980px) {
-  .hero, .work-grid, .compare, .install-steps, .host-row { grid-template-columns: 1fr; }
+  .hero, .work-grid, .install-steps, .host-row { grid-template-columns: 1fr; }
   .host-row { min-height: 0; }
 }
