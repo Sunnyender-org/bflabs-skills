@@ -23,6 +23,7 @@ window.BFSkills = {
       hosts: "宿主",
       install: "安装",
       prepared: "准备上架",
+      viewSkillHub: "在 SkillHub 查看",
       diagnose: "去检查",
       rootSkill: "总 skill",
       childSkills: "子 skill",
@@ -35,7 +36,7 @@ window.BFSkills = {
       installLocal: "本地",
       installHub: "SkillHub",
       installLocalBody: "Prism 放到 Codex 或 Grok 的 skills 目录，再运行仓库里的检查。GEO 先打开诊断站；要装到本地时，放到 Codex 或 Claude 的 skills 目录。",
-      installHubBody: "GEO 上架包已准备，可先从诊断站或 Skill 索引直接读取。平台提交后以上架回执为准。",
+      installHubBody: "GEO 已在 SkillHub 上架。搜索 bflabs-agent-readiness，或直接打开已审核的 0.4.3 页面。",
     },
     en: {
       navCatalog: "Catalog",
@@ -57,6 +58,7 @@ window.BFSkills = {
       hosts: "Hosts",
       install: "Install",
       prepared: "Ready to list",
+      viewSkillHub: "View on SkillHub",
       diagnose: "Check a site",
       rootSkill: "Root skill",
       childSkills: "Child skills",
@@ -69,7 +71,7 @@ window.BFSkills = {
       installLocal: "Local",
       installHub: "SkillHub",
       installLocalBody: "Put Prism in the Codex or Grok skills folder, then run the repo check. For GEO, start at the diagnosis site. To install locally, put it in the Codex or Claude skills folder.",
-      installHubBody: "The GEO listing package is ready. Use the diagnostic site or Skill index until the platform listing receipt is complete.",
+      installHubBody: "GEO is live on SkillHub. Search for bflabs-agent-readiness or open the reviewed 0.4.3 listing.",
     },
   },
   skills: [
@@ -205,10 +207,10 @@ window.BFSkills = {
       id: "skillhub",
       name: "SkillHub",
       number: "05",
-      state: "prepared",
+      state: "ready",
       body: {
-        zh: "GEO 上架包已准备，真实平台提交与回执仍待完成。",
-        en: "The GEO listing package is ready. Platform submission and receipt are still pending.",
+        zh: "GEO 0.4.3 已审核上架，卡片使用 BFLabs Logo。",
+        en: "GEO 0.4.3 is reviewed and listed with the BFLabs logo.",
       },
     },
     {
@@ -224,7 +226,13 @@ window.BFSkills = {
   ],
   installs: [
     { id: "local", titleKey: "installLocal", bodyKey: "installLocalBody", href: "catalog.html", ctaKey: "navCatalog" },
-    { id: "hub", titleKey: "installHub", bodyKey: "installHubBody" },
+    {
+      id: "hub",
+      titleKey: "installHub",
+      bodyKey: "installHubBody",
+      href: "https://skillhub.cn/skills/user_49f8ec71/bflabs-agent-readiness",
+      ctaKey: "viewSkillHub",
+    },
   ],
 };
 
