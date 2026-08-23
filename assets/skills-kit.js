@@ -36,7 +36,7 @@ window.BFSkills = {
       installLocal: "本地",
       installHub: "SkillHub",
       installLocalBody: "Prism 放到 Codex 或 Grok 的 skills 目录，再运行仓库里的检查。GEO 先打开诊断站；要装到本地时，放到 Codex 或 Claude 的 skills 目录。",
-      installHubBody: "GEO 已在 SkillHub 上架。搜索 bflabs-agent-readiness，或直接打开已审核的 0.4.4 中文页面。",
+      installHubBody: "GEO 已在 SkillHub 上架。打开后先检查网站，再把生成的提示词交给自己的 Agent 修复。",
     },
     en: {
       navCatalog: "Catalog",
@@ -71,7 +71,7 @@ window.BFSkills = {
       installLocal: "Local",
       installHub: "SkillHub",
       installLocalBody: "Put Prism in the Codex or Grok skills folder, then run the repo check. For GEO, start at the diagnosis site. To install locally, put it in the Codex or Claude skills folder.",
-      installHubBody: "GEO is live on SkillHub. Search for bflabs-agent-readiness or open the reviewed 0.4.4 Chinese listing.",
+      installHubBody: "GEO is live on SkillHub. Check a site, then give the generated prompt to your own agent to fix it.",
     },
   },
   skills: [
@@ -209,8 +209,8 @@ window.BFSkills = {
       number: "05",
       state: "ready",
       body: {
-        zh: "GEO 0.4.4 已审核上架，详情正文为中文，卡片使用 BFLabs Logo。",
-        en: "GEO 0.4.4 is reviewed and listed with Chinese detail copy and the BFLabs logo.",
+        zh: "GEO 已上架。检查网站、复制提示词，再交给自己的 Agent 修复。",
+        en: "GEO is live. Check a site, copy the prompt, and give it to your own agent to fix.",
       },
     },
     {
