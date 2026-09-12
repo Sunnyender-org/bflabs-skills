@@ -25,6 +25,7 @@ window.BFSkills = {
       prepared: "准备上架",
       viewSkillHub: "在 SkillHub 查看",
       diagnose: "去检查",
+      downloadSkill: "下载 Skill",
       rootSkill: "总 skill",
       childSkills: "子 skill",
       close: "关闭",
@@ -60,6 +61,7 @@ window.BFSkills = {
       prepared: "Ready to list",
       viewSkillHub: "View on SkillHub",
       diagnose: "Check a site",
+      downloadSkill: "Download Skill",
       rootSkill: "Root skill",
       childSkills: "Child skills",
       close: "Close",
@@ -81,14 +83,15 @@ window.BFSkills = {
       hosts: ["Codex", "Claude", "SkillHub"],
       href: "https://readiness.bflabs.cn/skills/bflabs-agent-readiness",
       diagnose: "https://readiness.bflabs.cn",
+      download: "https://readiness.bflabs.cn/downloads/bflabs-agent-readiness-skillhub-0.6.1.zip",
       name: { zh: "GEO", en: "GEO" },
       blurb: {
         zh: "免费检查公开网站：找得到、看得懂、用得起来。不承诺排名。",
         en: "Free check of a public site: can it be found, understood, and used. No ranking promise.",
       },
       install: {
-        zh: "打开 readiness.bflabs.cn，或让 Agent 读取站点的 Agent Skills 索引。",
-        en: "Open readiness.bflabs.cn, or let the agent read the site's Agent Skills index.",
+        zh: "把使用说明发给你的 Agent，或下载 Skill 自行安装。",
+        en: "Send the usage guide to your agent, or download the Skill to install it.",
       },
       children: [
         {
