@@ -66,6 +66,7 @@
           <div class="bf-confirmation-card__actions">
             ${item.href ? `<a class="bf-button bf-button--primary" href="${escapeHtml(item.href)}"><span>${escapeHtml(t("rootSkill"))}</span></a>` : ""}
             ${item.diagnose ? `<a class="bf-button bf-button--quiet" href="${escapeHtml(item.diagnose)}"><span>${escapeHtml(t("diagnose"))}</span></a>` : ""}
+            ${item.download ? `<a class="bf-button bf-button--quiet" href="${escapeHtml(item.download)}"><span>${escapeHtml(t("downloadSkill"))}</span></a>` : ""}
             <button class="bf-button bf-button--quiet" type="button" data-close>${escapeHtml(t("close"))}</button>
           </div>
         </article>`;
