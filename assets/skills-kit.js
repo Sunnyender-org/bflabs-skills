@@ -83,7 +83,7 @@ window.BFSkills = {
       hosts: ["Codex", "Claude", "SkillHub"],
       href: "https://readiness.bflabs.cn/skills/bflabs-agent-readiness",
       diagnose: "https://readiness.bflabs.cn",
-      download: "https://readiness.bflabs.cn/downloads/bflabs-agent-readiness-skillhub-0.6.1.zip",
+      download: "https://readiness.bflabs.cn/downloads/bflabs-agent-readiness-skillhub-0.6.2.zip",
       name: { zh: "GEO", en: "GEO" },
       blurb: {
         zh: "免费检查公开网站：找得到、看得懂、用得起来。不承诺排名。",
