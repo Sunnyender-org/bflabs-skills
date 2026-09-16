@@ -12,9 +12,11 @@ BF Labs 的 skill 目录站。视觉跟 [bflabs-ui](https://github.com/Sunnyende
 
 ## 建设品牌
 
-公开页是 `brand-building.html`。目录里的「建设品牌」只链到这一页，不链 GitHub，也不放下载。
+目录与 `brand-building.html` 提供独立品牌建设入口。`downloads/` 保存由 brand-building 固定版本源码生成的发行副本，`brand-building.json` 记录来源提交、依赖提交和 SHA-256；不要手改压缩包里的文件。
 
-`Sunnyender-org/brand-building` 远程仓库还没建。本地候选版本是 0.1.0。主仓建好远程、并确认可安装产物之后，再把 GitHub、下载或 SkillHub 写进目录。在那之前不要把未审核的安装链接发到站点上。
+更新包：在 brand-building 运行 `scripts/package.py all --readiness-checkout <pinned-checkout>`，完成包与消费验收后，将产物复制到 `downloads/` 并更新对应回执。`check-catalog.js` 会核对实际文件哈希，部署前自动运行。
+
+目前是本地待发布改动，不能据此声称线上目录已更新。远端和市场入口需真实存在后再添加。
 
 ## 检查网站
 

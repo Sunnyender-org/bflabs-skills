@@ -5,6 +5,7 @@ const fs = require("node:fs");
 const http = require("node:http");
 const path = require("node:path");
 const vm = require("node:vm");
+const crypto = require("node:crypto");
 const root = path.join(__dirname, "..");
 const errors = [];
 
@@ -118,8 +119,8 @@ function checkCatalog(win) {
   const geoChild = BFSkillsUI.findSkill("geo-discover");
   if (!brand || brand !== brandAlias) fail("brand-building aliases do not resolve");
   if (!geo || geo !== geoAlias || geo !== geoChild) fail("geo deeplink aliases do not resolve");
-  if (brand.download || brand.diagnose || brand.href !== "brand-building.html") {
-    fail("brand-building must use the local guide and must not publish download/diagnose links");
+  if (brand.download !== "downloads/brand-building-skillhub-0.1.0.zip" || brand.diagnose || brand.href !== "brand-building.html") {
+    fail("brand-building guide/download targets drifted");
   }
   if (Array.isArray(brand.children) && brand.children.length) {
     fail("brand-building must not force child skills");
@@ -176,6 +177,11 @@ async function checkHttp() {
 async function main() {
   checkFiles();
   checkCatalog(loadSkills());
+  const receipt = JSON.parse(read("downloads/brand-building.json"));
+  const archive = path.join(root, "downloads", receipt.filename);
+  if (path.dirname(archive) !== path.join(root, "downloads")) fail("invalid download filename");
+  const digest = crypto.createHash("sha256").update(fs.readFileSync(archive)).digest("hex");
+  if (digest !== receipt.sha256) fail("brand-building download hash mismatch");
   await checkHttp();
   if (errors.length) {
     for (const error of errors) console.error(`check-catalog: ${error}`);
