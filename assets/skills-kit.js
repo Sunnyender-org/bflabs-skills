@@ -154,8 +154,8 @@ window.BFSkills = {
         en: "Start before you have a site. From research to distribution.",
       },
       install: {
-        zh: "把说明发给你的 Agent。",
-        en: "Send the guide to your agent.",
+        zh: "下载并解压到 skills/brand-building，再让 Agent 读取 SKILL.md。",
+        en: "Extract into skills/brand-building, then ask your agent to read SKILL.md.",
       },
       cta: { zh: "看怎么开始", en: "See how to start" },
     },
