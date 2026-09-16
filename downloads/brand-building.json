@@ -2,9 +2,9 @@
   "name": "brand-building",
   "version": "0.1.0",
   "filename": "brand-building-skillhub-0.1.0.zip",
-  "sha256": "d4b6237cb55af96c06c49234087f9c8afbbd85b65797d2f5a722ea35c9114864",
-  "source_commit": "853e6a9f3d5f1d1d0cf92ac92aebdc130771c186",
-  "dependency_commit": "457daaeecbbc1a597fd0d62756edab9e35569b5c",
-  "dependency_sha256": "daa1049964ecb232e0c86d5247e0b40a675f0b7e77a09f52adac439cec27bf07",
+  "sha256": "1eddd2405d7507b9bc91a826344118a35784ba58d1d3d32db63581d0c887bb49",
+  "source_commit": "5a7a5ba406f81200b61b89a71135b06b83b18b71",
+  "dependency_commit": "085254d185506897585e5f5756dd9306c40b5a2a",
+  "dependency_sha256": "68924715a6a3e6a2a3df3a117ddb668ec742ec21431b458adf7fe4f468e58311",
   "publication_status": "local_candidate"
 }
