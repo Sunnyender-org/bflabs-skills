@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>建设品牌 · BF Labs Skills</title>
+  <meta name="description" content="还没有网站也可以建设品牌。从调研、定位、内容、分发到衡量，下载 Skill，让 Agent 帮你开始。" />
+  <link rel="canonical" href="https://skills.bflabs.cn/brand-building.html" />
+  <meta property="og:title" content="建设品牌 · BF Labs Skills" />
+  <meta property="og:description" content="还没有网站也可以建设品牌。从调研、定位、内容、分发到衡量，下载 Skill，让 Agent 帮你开始。" />
+  <meta property="og:url" content="https://skills.bflabs.cn/brand-building.html" />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="assets/bflabs-ui/tokens.css" />
+  <link rel="stylesheet" href="assets/bflabs-ui/base.css" />
+  <link rel="stylesheet" href="assets/bflabs-ui/components.css" />
+  <link rel="stylesheet" href="assets/skills-kit.css" />
+  <link rel="stylesheet" href="assets/skills-site.css?v=brand-building-0.1.0" />
+</head>
+<body class="bf-theme" data-tone="light">
+  <header class="sk-header" id="site-header"></header>
+  <main class="sk-page inner">
+    <div class="guide-copy">
+      <span class="bf-section-heading__eyebrow" id="brand-eyebrow"></span>
+      <h1 class="bf-section-heading__title" id="brand-title"></h1>
+      <p class="guide-lede" id="brand-lede"></p>
+    </div>
+    <p class="guide-actions" id="brand-actions"></p>
+    <ol class="guide-path" id="brand-path"></ol>
+    <div class="guide-cards">
+      <div class="install-steps" id="brand-cards"></div>
+    </div>
+  </main>
+  <footer class="sk-footer" id="site-footer"></footer>
+  <script src="assets/skills-kit.js?v=brand-building-0.1.0"></script>
+  <script>
+    const { escapeHtml, padIndex, brandCopy, boot } = window.BFSkillsUI;
+
+    function setMeta(name, value, attr) {
+      const node = document.querySelector(`meta[${attr}="${name}"]`);
+      if (node) node.setAttribute("content", value);
+    }
+
+    function paint() {
+      const guide = brandCopy();
+      document.title = guide.documentTitle;
+      document.getElementById("brand-eyebrow").textContent = guide.eyebrow;
+      document.getElementById("brand-title").textContent = guide.title;
+      const lede = Array.isArray(guide.lede) ? guide.lede : [guide.lede];
+      document.getElementById("brand-lede").innerHTML = lede.map((line) => `<span>${escapeHtml(line)}</span>`).join("");
+      setMeta("description", guide.meta, "name");
+      setMeta("og:title", guide.documentTitle, "property");
+      setMeta("og:description", guide.meta, "property");
+
+      document.getElementById("brand-path").innerHTML = guide.steps.map((step, index) => `
+        <li>
+          <span class="guide-path__index">${padIndex(index)}</span>
+          <strong class="guide-path__name">${escapeHtml(step.name)}</strong>
+          <span class="guide-path__body">${escapeHtml(step.body)}</span>
+        </li>`).join("");
+
+      document.getElementById("brand-cards").innerHTML = `
+        <article class="bf-card">
+          <span class="bf-card__index">01</span>
+          <h2 class="bf-card__title">${escapeHtml(guide.nextTitle)}</h2>
+          <p class="bf-card__body">${escapeHtml(guide.nextBody)}</p>
+        </article>
+        <article class="bf-card">
+          <span class="bf-card__index">02</span>
+          <h2 class="bf-card__title">${escapeHtml(guide.installTitle)}</h2>
+          <p class="bf-card__body">${escapeHtml(guide.installBody)}</p>
+        </article>
+        <article class="bf-card">
+          <span class="bf-card__index">03</span>
+          <h2 class="bf-card__title">${escapeHtml(guide.siteTitle)}</h2>
+          <p class="bf-card__body">${escapeHtml(guide.siteBody)}</p>
+        </article>`;
+
+      document.getElementById("brand-actions").innerHTML = `
+        <a class="bf-button bf-button--primary" href="downloads/brand-building-skillhub-0.1.0.zip" download>
+          <span>${escapeHtml(guide.catalogCta)}</span>
+        </a>
+        <a class="bf-button bf-button--quiet" href="https://github.com/Sunnyender-org/brand-building"><span>GitHub</span></a>
+        <a class="bf-button bf-button--secondary" href="https://readiness.bflabs.cn">
+          <span>${escapeHtml(guide.siteCta)}</span>
+        </a>`;
+    }
+
+    window.addEventListener("bf-lang", paint);
+    boot({ page: "brand-building", assetRoot: "assets" });
+    paint();
+  </script>
+</body>
+</html>

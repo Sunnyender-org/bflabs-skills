@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="assets/bflabs-ui/base.css" />
   <link rel="stylesheet" href="assets/bflabs-ui/components.css" />
   <link rel="stylesheet" href="assets/skills-kit.css" />
-  <link rel="stylesheet" href="assets/skills-site.css" />
+  <link rel="stylesheet" href="assets/skills-site.css?v=brand-building-0.1.0" />
 </head>
 <body class="bf-theme" data-tone="light">
   <div class="sk-orbit" aria-hidden="true">
@@ -32,8 +32,12 @@
         <span class="bf-section-heading__eyebrow" data-i18n="heroEyebrow"></span>
         <h1 class="bf-kinetic-heading hero__title" data-kinetic id="hero-title"></h1>
         <div class="hero__actions">
-          <a class="bf-button bf-button--primary" href="catalog.html">
-            <span data-i18n="ctaPrism"></span>
+          <a class="bf-button bf-button--primary" href="brand-building.html">
+            <span data-i18n="ctaBrand"></span>
+            <svg class="bf-button__icon bf-button__icon--end" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          </a>
+          <a class="bf-button bf-button--secondary" href="https://readiness.bflabs.cn">
+            <span data-i18n="ctaSite"></span>
             <svg class="bf-button__icon bf-button__icon--end" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
           </a>
         </div>
@@ -47,7 +51,7 @@
     </section>
   </main>
 
-  <script src="assets/skills-kit.js"></script>
+  <script src="assets/skills-kit.js?v=brand-building-0.1.0"></script>
   <script>
     const { t, kineticLines, boot } = window.BFSkillsUI;
     function paint() {

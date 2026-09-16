@@ -14,7 +14,8 @@ window.BFSkills = {
       heroEyebrow: "skills.bflabs.cn",
       heroLine1: "技能与插件",
       heroLine2: "给真正干活的智能体。",
-      ctaPrism: "看看有什么 skills",
+      ctaBrand: "建设品牌",
+      ctaSite: "检查网站",
       catalogTitle: "目录",
       hostsTitle: "宿主",
       compareTitle: "层级",
@@ -26,18 +27,20 @@ window.BFSkills = {
       viewSkillHub: "在 SkillHub 查看",
       diagnose: "去检查",
       downloadSkill: "下载 Skill",
-      rootSkill: "总 skill",
-      childSkills: "子 skill",
+      rootSkill: "查看说明",
+      childSkills: "还可以用",
       close: "关闭",
       mailLabel: "联系",
       legalLeft: "skills.bflabs.cn",
       legalRight: "hello@bflabs.cn",
       compareFreeTitle: "Free",
-      compareFree: "自己装，自己跑。网站先检查，图再拆成提示词。",
+      compareFree: "自己装，自己跑。先建设品牌，或先检查网站。图也可以拆成提示词。",
+      installBrand: "建设品牌",
+      installBrandBody: "在 Agent 的 skills 目录中新建 brand-building 文件夹，将下载包解压进去。告诉它品牌、目标市场和这次要完成的事，没有网站也可以开始。",
       installLocal: "本地",
       installHub: "SkillHub",
-      installLocalBody: "Prism 放到 Codex 或 Grok 的 skills 目录，再运行仓库里的检查。GEO 先打开诊断站；要装到本地时，放到 Codex 或 Claude 的 skills 目录。",
-      installHubBody: "GEO 已在 SkillHub 上架。打开后先检查网站，再把生成的提示词交给自己的 Agent 修复。",
+      installLocalBody: "检查网站：打开检查页，或下载 Skill 放到 Codex、Claude 的 skills 目录。Prism：放到 Codex 或 Grok 的 skills 目录，再运行仓库里的检查。",
+      installHubBody: "网站检查 Skill（GEO）已在 SkillHub 上架。打开后检查网站，再把提示词交给自己的 Agent 修复。",
     },
     en: {
       navCatalog: "Catalog",
@@ -50,7 +53,8 @@ window.BFSkills = {
       heroEyebrow: "skills.bflabs.cn",
       heroLine1: "Skills and plugins",
       heroLine2: "for agents that do real work.",
-      ctaPrism: "See the skills",
+      ctaBrand: "Build a brand",
+      ctaSite: "Check a website",
       catalogTitle: "Catalog",
       hostsTitle: "Hosts",
       compareTitle: "Tiers",
@@ -62,29 +66,109 @@ window.BFSkills = {
       viewSkillHub: "View on SkillHub",
       diagnose: "Check a site",
       downloadSkill: "Download Skill",
-      rootSkill: "Root skill",
-      childSkills: "Child skills",
+      rootSkill: "Read the guide",
+      childSkills: "Also included",
       close: "Close",
       mailLabel: "Contact",
       legalLeft: "skills.bflabs.cn",
       legalRight: "hello@bflabs.cn",
       compareFreeTitle: "Free",
-      compareFree: "Install and run it yourself. Check the site first, then turn pictures into prompts.",
+      compareFree: "Install and run it yourself. Build a brand, or check a website. Pictures can become prompts.",
+      installBrand: "Build a brand",
+      installBrandBody: "Create brand-building inside your agent’s skills folder and extract the download there. Tell it your brand, market, and current goal. A website is optional.",
       installLocal: "Local",
       installHub: "SkillHub",
-      installLocalBody: "Put Prism in the Codex or Grok skills folder, then run the repo check. For GEO, start at the diagnosis site. To install locally, put it in the Codex or Claude skills folder.",
-      installHubBody: "GEO is live on SkillHub. Check a site, then give the generated prompt to your own agent to fix it.",
+      installLocalBody: "Check a website: open the check page, or download the Skill into the Codex or Claude skills folder. Prism: put it in the Codex or Grok skills folder, then run the repo check.",
+      installHubBody: "The website-check Skill (GEO) is on SkillHub. Check a site, then give the prompt to your own agent to fix it.",
+    },
+  },
+  brandGuide: {
+    zh: {
+      title: "建设品牌",
+      documentTitle: "建设品牌 · BF Labs Skills",
+      meta: "还没有网站也可以建设品牌。从调研、定位、内容、分发到衡量，下载 Skill，让 Agent 帮你开始。",
+      eyebrow: "Skills",
+      lede: [
+        "还没有网站，也可以开始。",
+        "先弄清你是谁、对谁说话。",
+        "再写内容和页面。",
+        "再决定发到哪里、怎么衡量。",
+      ],
+      pathLabel: "怎么做",
+      steps: [
+        { name: "调研", body: "弄清你在帮谁、他们要解决什么、市场上已经有谁。" },
+        { name: "定位与表达", body: "写下你是谁、不是谁，以及说话的语气和用词。" },
+        { name: "内容与网站", body: "把定位写成页面、文章和素材。没有网站就先写这些。" },
+        { name: "分发", body: "决定发到哪些地方，让该看见的人看见。" },
+        { name: "衡量与迭代", body: "看哪些话被问到、哪些内容有用，再改下一轮。不编造效果。" },
+      ],
+      siteTitle: "已有网站时",
+      siteBody: "可以检查页面找不找得到、读不读得懂、用不用得起来。不承诺排名，也不借用别人的背书。",
+      siteCta: "检查网站",
+      nextTitle: "下一步",
+      nextBody: "告诉 Agent：“请用 brand-building，为我的品牌做一轮研究与建设。目标市场是……，本轮想完成……”。",
+      installTitle: "给 Agent 用",
+      installBody: "在 Agent 的 skills 目录中新建 brand-building 文件夹，将下载包解压进去，再让 Agent 读取其中的 SKILL.md。",
+      catalogCta: "下载 Skill",
+    },
+    en: {
+      title: "Build a brand",
+      documentTitle: "Build a brand · BF Labs Skills",
+      meta: "Build a brand before you have a website. Research, positioning, content, distribution, and measurement. Download the Skill and start with your agent.",
+      eyebrow: "Skills",
+      lede: [
+        "You can start before you have a website.",
+        "First get clear who you are and who you speak to.",
+        "Then turn that into content and pages.",
+        "Then choose where it goes, and how you will know it is working.",
+      ],
+      pathLabel: "How it works",
+      steps: [
+        { name: "Research", body: "Get clear who you help, what they need, and who is already in the market." },
+        { name: "Positioning", body: "Write who you are, who you are not, and how you sound." },
+        { name: "Content and site", body: "Turn that into pages, articles, and assets. If you have no site yet, write these first." },
+        { name: "Distribution", body: "Choose where to publish so the right people can find it." },
+        { name: "Measurement", body: "See which questions come up and which pages help, then change the next round. Do not invent results." },
+      ],
+      siteTitle: "If you have a site",
+      siteBody: "You can check whether pages can be found, understood, and used. No ranking promise, and no borrowed endorsements.",
+      siteCta: "Check a website",
+      nextTitle: "Next",
+      nextBody: "Tell your agent: “Use brand-building for my brand. My target market is … and this round should deliver …”.",
+      installTitle: "Use it with your agent",
+      installBody: "Create brand-building inside your agent’s skills folder, extract the download there, and ask your agent to read its SKILL.md.",
+      catalogCta: "Download Skill",
     },
   },
   skills: [
     {
+      id: "brand-building",
+      aliases: ["brand", "build-a-brand"],
+      tier: "Free",
+      hosts: ["Codex", "Claude", "Grok"],
+      href: "brand-building.html",
+      source: "https://github.com/Sunnyender-org/brand-building",
+      download: "downloads/brand-building-skillhub-0.1.0.zip",
+      name: { zh: "建设品牌", en: "Build a brand" },
+      blurb: {
+        zh: "还没有网站也可以开始。从调研做到分发。",
+        en: "Start before you have a site. From research to distribution.",
+      },
+      install: {
+        zh: "下载并解压到 skills/brand-building，再让 Agent 读取 SKILL.md。",
+        en: "Extract into skills/brand-building, then ask your agent to read SKILL.md.",
+      },
+      cta: { zh: "看怎么开始", en: "See how to start" },
+    },
+    {
       id: "geo",
+      aliases: ["GEO", "check-website", "check-a-website", "readiness"],
       tier: "Free",
       hosts: ["Codex", "Claude", "SkillHub"],
       href: "https://readiness.bflabs.cn/skills/bflabs-agent-readiness",
       diagnose: "https://readiness.bflabs.cn",
       download: "https://readiness.bflabs.cn/downloads/bflabs-agent-readiness-skillhub-0.6.6.zip",
-      name: { zh: "GEO", en: "GEO" },
+      name: { zh: "检查网站", en: "Check a website" },
       blurb: {
         zh: "免费检查公开网站：找得到、看得懂、用得起来。不承诺排名。",
         en: "Free check of a public site: can it be found, understood, and used. No ranking promise.",
@@ -93,6 +177,7 @@ window.BFSkills = {
         zh: "把使用说明发给你的 Agent，或下载 Skill 自行安装。",
         en: "Send the usage guide to your agent, or download the Skill to install it.",
       },
+      cta: { zh: "使用说明", en: "Usage guide" },
       children: [
         {
           id: "geo-discover",
@@ -172,8 +257,8 @@ window.BFSkills = {
       number: "01",
       state: "ready",
       body: {
-        zh: "本地装。GEO 和 Prism 都可以放进来。",
-        en: "Install locally. GEO and Prism both run here.",
+        zh: "本地装。建设品牌、检查网站和 Prism 都可以在这里跑。",
+        en: "Install locally. Build a brand, check a website, and Prism all run here.",
       },
     },
     {
@@ -182,8 +267,8 @@ window.BFSkills = {
       number: "02",
       state: "ready",
       body: {
-        zh: "本地装。GEO 放进 skills 目录即可。",
-        en: "Install locally. Put GEO in the skills folder.",
+        zh: "本地装。建设品牌和检查网站都可以放进 skills 目录。",
+        en: "Install locally. Build a brand and check a website both go in the skills folder.",
       },
     },
     {
@@ -192,8 +277,8 @@ window.BFSkills = {
       number: "03",
       state: "ready",
       body: {
-        zh: "本地装。Prism 在这里跑。",
-        en: "Install locally. Prism runs here.",
+        zh: "本地装。建设品牌和 Prism 都可以在这里跑。",
+        en: "Install locally. Build a brand and Prism both run here.",
       },
     },
     {
@@ -212,8 +297,8 @@ window.BFSkills = {
       number: "05",
       state: "ready",
       body: {
-        zh: "GEO 已上架。检查网站、复制提示词，再交给自己的 Agent 修复。",
-        en: "GEO is live. Check a site, copy the prompt, and give it to your own agent to fix.",
+        zh: "检查网站已上架。打开后检查网站、复制提示词，再交给自己的 Agent 修复。",
+        en: "Check a website is live. Check a site, copy the prompt, and give it to your own agent to fix.",
       },
     },
     {
@@ -228,6 +313,7 @@ window.BFSkills = {
     },
   ],
   installs: [
+    { id: "brand", titleKey: "installBrand", bodyKey: "installBrandBody", href: "brand-building.html", ctaKey: "ctaBrand" },
     { id: "local", titleKey: "installLocal", bodyKey: "installLocalBody", href: "catalog.html", ctaKey: "navCatalog" },
     {
       id: "hub",
@@ -265,10 +351,18 @@ function padIndex(index) {
   return String(index + 1).padStart(2, "0");
 }
 
+function matchesSkill(skill, id) {
+  if (skill.id === id) return true;
+  if ((skill.aliases || []).includes(id)) return true;
+  return (skill.children || []).some((child) => child.id === id);
+}
+
 function findSkill(id) {
-  const top = window.BFSkills.skills.find((skill) => skill.id === id);
-  if (top) return top;
-  return window.BFSkills.skills.find((skill) => (skill.children || []).some((child) => child.id === id)) || null;
+  return window.BFSkills.skills.find((skill) => matchesSkill(skill, id)) || null;
+}
+
+function brandCopy() {
+  return window.BFSkills.brandGuide[window.BFSkills.lang] || window.BFSkills.brandGuide.zh;
 }
 
 function skillsFor(tier) {
@@ -457,6 +551,7 @@ window.BFSkillsUI = {
   escapeHtml,
   padIndex,
   findSkill,
+  brandCopy,
   skillsFor,
   hostStateLabel,
   applyI18n,
