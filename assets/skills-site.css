@@ -32,6 +32,8 @@
 
 .hero__actions {
   width: min(100%, 28rem);
+  display: grid;
+  gap: 0.75rem;
   margin-top: 2.25rem;
 }
 
@@ -255,6 +257,86 @@
 .orange .bf-section-heading__index { color: var(--bf-color-charcoal); }
 
 .orange .bf-card { background: color-mix(in srgb, var(--bf-color-warm-white) 22%, transparent); }
+
+.guide-copy {
+  width: min(100%, 42rem);
+}
+
+.guide-copy .bf-section-heading__title {
+  margin-bottom: 0;
+}
+
+.guide-lede {
+  width: min(100%, 42rem);
+  margin: 1.5rem 0 0;
+  color: var(--bf-color-graphite);
+  font-family: var(--bf-font-display);
+  font-size: clamp(1.15rem, 1.6vw, 1.65rem);
+  letter-spacing: -0.03em;
+  line-height: 1.35;
+}
+
+.guide-lede span {
+  display: block;
+}
+
+.guide-lede span + span {
+  margin-top: 0.45em;
+}
+
+.guide-path {
+  width: min(100%, 42rem);
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guide-path li {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.15rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--bf-foreground) 10%, transparent);
+}
+
+.guide-path__index {
+  color: var(--bf-color-orange);
+  font-family: var(--bf-font-display);
+  font-size: var(--bf-text-2xs);
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.guide-path__name {
+  font-family: var(--bf-font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.guide-path__body {
+  color: var(--bf-foreground-muted);
+  font-size: var(--bf-text-sm);
+  line-height: 1.65;
+}
+
+.guide-cards {
+  width: min(100%, 42rem);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.guide-cards .install-steps {
+  grid-template-columns: 1fr;
+  margin-top: 0;
+}
+
+.guide-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  width: min(100%, 28rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
 
 .panel {
   position: fixed;
