@@ -85,9 +85,6 @@ function checkFiles() {
     if (page !== "index.html" && !deploy.includes(page)) fail(`scripts/deploy.sh does not stage ${page}`);
   }
 
-  if (/Sunnyender-org\/brand-building/i.test(kit) || pages.some((page) => /Sunnyender-org\/brand-building/i.test(read(page)))) {
-    fail("public files must not link the uncreated brand-building GitHub remote");
-  }
   if (/\b0\.7\.0\b/.test(kit)) fail("skills-kit.js must not claim 0.7.0");
   if (!kit.includes("bflabs-agent-readiness-skillhub-0.6.6.zip")) {
     fail("GEO download must remain the verified 0.6.6 package");

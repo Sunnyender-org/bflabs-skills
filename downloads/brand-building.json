@@ -2,9 +2,10 @@
   "name": "brand-building",
   "version": "0.1.0",
   "filename": "brand-building-skillhub-0.1.0.zip",
-  "sha256": "1eddd2405d7507b9bc91a826344118a35784ba58d1d3d32db63581d0c887bb49",
-  "source_commit": "5a7a5ba406f81200b61b89a71135b06b83b18b71",
+  "sha256": "cd7faafb6924ff947ddc9c693e6ff340f19338bce5b2b92d397e3c534105ed2c",
+  "source_commit": "13c67592c4190872e099e1e42c0b862ac7d0bee5",
   "dependency_commit": "085254d185506897585e5f5756dd9306c40b5a2a",
   "dependency_sha256": "68924715a6a3e6a2a3df3a117ddb668ec742ec21431b458adf7fe4f468e58311",
-  "publication_status": "local_candidate"
+  "publication_status": "released",
+  "release_url": "https://github.com/Sunnyender-org/brand-building/releases/tag/v0.1.0"
 }

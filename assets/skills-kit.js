@@ -147,6 +147,7 @@ window.BFSkills = {
       tier: "Free",
       hosts: ["Codex", "Claude", "Grok"],
       href: "brand-building.html",
+      source: "https://github.com/Sunnyender-org/brand-building",
       download: "downloads/brand-building-skillhub-0.1.0.zip",
       name: { zh: "建设品牌", en: "Build a brand" },
       blurb: {
