@@ -16,7 +16,7 @@ BF Labs 的 skill 目录站。视觉跟 [bflabs-ui](https://github.com/Sunnyende
 
 更新包：在 brand-building 运行 `scripts/package.py all --readiness-checkout <pinned-checkout>`，完成包与消费验收后，将产物复制到 `downloads/` 并更新对应回执。`check-catalog.js` 会核对实际文件哈希，部署前自动运行。
 
-品牌 Skill 源码：https://github.com/Sunnyender-org/brand-building 。版本0.1.0由GitHub Release和此目录分发；第三方市场上架状态独立确认。
+品牌 Skill 源码：https://github.com/Sunnyender-org/brand-building 。版本0.1.1由GitHub Release和此目录分发；第三方市场上架状态独立确认。
 
 ## 检查网站
 

@@ -116,7 +116,7 @@ function checkCatalog(win) {
   const geoChild = BFSkillsUI.findSkill("geo-discover");
   if (!brand || brand !== brandAlias) fail("brand-building aliases do not resolve");
   if (!geo || geo !== geoAlias || geo !== geoChild) fail("geo deeplink aliases do not resolve");
-  if (brand.download !== "downloads/brand-building-skillhub-0.1.0.zip" || brand.diagnose || brand.href !== "brand-building.html") {
+  if (brand.download !== "downloads/brand-building-skillhub-0.1.1.zip" || brand.diagnose || brand.href !== "brand-building.html") {
     fail("brand-building guide/download targets drifted");
   }
   if (Array.isArray(brand.children) && brand.children.length) {
